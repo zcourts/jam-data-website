@@ -63,6 +63,7 @@ export function ContactForm() {
         setSubmissionMessage(data.message || 'Something went wrong.');
       }
     } catch (error) {
+      console.error('Form submission error:', error);
       setSubmissionStatus('error');
       setSubmissionMessage('Something went wrong. Please try again.');
     }

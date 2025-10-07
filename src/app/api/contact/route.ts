@@ -12,7 +12,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: false, message: 'Name, email, and message are required.' }, { status: 400 });
     }
 
-    const { data, error } = await resend.emails.send({
+    const { error } = await resend.emails.send({
       from: 'Jam Data Solutions <noreply@jam-data-solutions.com>',
       to: ['jamadata@crlog.info'],
       subject: 'New Contact Form Submission',

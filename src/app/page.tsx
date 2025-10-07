@@ -10,7 +10,7 @@ export default function Home() {
         <div className="container mx-auto">
           <h1 className="text-4xl font-bold mb-4">Your partner in bringing ideas to life</h1>
           <p className="text-lg text-gray-600 mb-8">
-            From concept to code, we're with you every step of the way.
+            From concept to code, we&apos;re with you every step of the way.
           </p>
           <ContactDialog />
         </div>

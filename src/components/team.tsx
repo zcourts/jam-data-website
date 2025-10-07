@@ -1,5 +1,5 @@
 
-import { Users, Code, Smartphone, Database, Paintbrush, Box } from 'lucide-react';
+import { Users, Code } from 'lucide-react';
 
 const teamStats = [
   {
