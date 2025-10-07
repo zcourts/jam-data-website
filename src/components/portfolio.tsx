@@ -51,7 +51,7 @@ const projects = [
   {
     title: "Chaufr",
     description: "A revolutionary application for large cities where finding parking may be a huge hassle. Using Chaufr just call a chauffeur who will take your car to their parking.",
-    techStack: [[ "Pusher", "Firebase", "Google Maps", "Checkout"]],
+    techStack: ["Native Android (Java)", "Pusher", "Firebase", "Google Maps", "Checkout"],
   },
 ];
 
