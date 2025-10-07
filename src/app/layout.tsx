@@ -14,8 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Jam Data Solutions",
-  description: "Your partner in software development",
+  title: "Jam Data Solutions | Design, Build, and Scale Revenue-Driving Software",
+  description:
+    "Senior team delivering dependable web, mobile, and platform engineering for media, fintech, and e‑commerce. 100M+ monthly visits scale, faster launches, measurable outcomes.",
 };
 
 export default function RootLayout({
