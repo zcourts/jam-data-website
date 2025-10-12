@@ -1,6 +1,18 @@
 import { Badge } from "@/components/ui/badge";
+import { ChevronRight, CheckCircle2 } from "lucide-react";
+import Image from "next/image";
+import React from "react";
 
-const projects = [
+type Project = {
+  title: string;
+  outcomes?: string[];
+  techStack: string[];
+  link?: string;
+  logo?: string;        // /public path, e.g. "/logos/napier.svg"
+  accent?: string;      // hex accent for subtle highlights
+};
+
+const projects: Project[] = [
   {
     title: "Reverse Media Group",
     outcomes: [
@@ -10,6 +22,7 @@ const projects = [
     ],
     techStack: ["PHP", "Java", "Postgres", "MySQL", "Elasticsearch", "Redis"],
     link: "https://reversemediagroup.com/",
+    accent: "#2563eb",
   },
   {
     title: "Showcase",
@@ -20,6 +33,7 @@ const projects = [
     ],
     techStack: ["Wordpress", "Laravel", "Redis", "MySQL"],
     link: "https://www.showcase.co/",
+    accent: "#0ea5e9",
   },
   {
     title: "Napier AI",
@@ -30,37 +44,8 @@ const projects = [
     ],
     techStack: ["Scala", "Java", "Cassandra", "Spark", "Elasticsearch", "Redis"],
     link: "https://www.napier.ai/",
+    accent: "#22c55e",
   },
-  // {
-  //   title: "Prolog",
-  //   outcomes: [
-  //     "Freight network for global shippers",
-  //     "Seamless booking and tracking",
-  //     "Admin + partner dashboards",
-  //   ],
-  //   techStack: ["Node.js", "Express.js", "Angular", "PostgreSQL", "AWS S3", "AWS EC2"],
-  //   link: "https://www.prolognet.com",
-  // },
-  // {
-  //   title: "TalentSync",
-  //   outcomes: [
-  //     "Two-sided marketplace for hiring",
-  //     "Automated application workflows",
-  //     "Payments + subscriptions",
-  //   ],
-  //   techStack: ["Node.js", "Express.js", "React.js", "PostgreSQL", "AWS S3", "AWS EC2", "Paypal"],
-  //   link: "https://talentsync.agency",
-  // },
-  // {
-  //   title: "OnlyHands",
-  //   outcomes: [
-  //     "Creator subscriptions and chat",
-  //     "Real-time feeds and messaging",
-  //     "Trainer marketplace",
-  //   ],
-  //   techStack: ["Node.js", "Express.js", "React.js", "PostgreSQL", "AWS S3", "AWS EC2", "Socket.io", "GoogleOAuth"],
-  //   link: "https://only-hands.net",
-  // },
   {
     title: "Deathplan",
     outcomes: [
@@ -70,59 +55,90 @@ const projects = [
     ],
     techStack: ["Node.js", "Express.js", "React.js", "PostgreSQL", "AWS S3", "AWS EC2", "Stripe", "Libsodium", "Crypto.js"],
     link: "https://mygoodbyegift.com",
+    accent: "#ef4444",
   },
   {
     title: "Sippy",
-    outcomes: [
-      "Geo search for specialty coffee",
-      "Curated recommendations",
-      "Local discovery UX",
-    ],
+    outcomes: ["Geo search for specialty coffee", "Curated recommendations", "Local discovery UX"],
     techStack: ["Native Android (Java)", "Google Maps", "Checkout"],
+    accent: "#a855f7",
   },
   {
     title: "Chaufr",
-    outcomes: [
-      "On-demand valet parking",
-      "Realtime driver dispatch",
-      "Payments + maps",
-    ],
+    outcomes: ["On-demand valet parking", "Realtime driver dispatch", "Payments + maps"],
     techStack: ["Native Android (Java)", "Pusher", "Firebase", "Google Maps", "Checkout"],
+    accent: "#f59e0b",
   },
 ];
 
 export function Portfolio() {
   return (
-    <section className="py-20">
+    <section className="py-20 px-4">
       <div className="container mx-auto">
-        <h2 className="text-3xl font-bold text-center mb-12">Our Work</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
-            <div key={project.title} className="bg-white p-6 rounded-lg shadow-md flex flex-col">
-              <h3 className="text-xl font-bold mb-3">{project.title}</h3>
-              {project.outcomes && (
-                <ul className="text-gray-700 mb-4 list-disc ml-5">
-                  {project.outcomes.map((o) => (
-                    <li key={o}>{o}</li>
+        <h2 className="text-3xl md:text-4xl font-bold text-center mb-4">Our Work</h2>
+        <p className="text-center text-gray-600 max-w-2xl mx-auto mb-12">
+          A few outcomes we’re proud of—from high-scale media platforms to resilient fintech systems.
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
+          {projects.map((p) => (
+            <article
+              key={p.title}
+              className="group relative flex h-full flex-col rounded-2xl border bg-white p-6 shadow-sm transition-all hover:shadow-md"
+            >
+              {/* subtle accent blob */}
+              <div
+                className="pointer-events-none absolute -right-2 -top-2 h-28 w-28 rounded-full blur"
+                style={{ background: (p.accent ?? "#3b82f6") + "22" }}
+              />
+              {/* header: logo + title */}
+              <header className="mb-4 flex items-center gap-3">
+                <div className="flex h-12 w-12 items-center justify-center rounded-lg ring-1 ring-gray-200 bg-white overflow-hidden">
+                  {p.logo ? (
+                    <Image src={p.logo} alt={`${p.title} logo`} width={48} height={48} className="object-contain" />
+                  ) : (
+                    <div className="h-6 w-6 rounded bg-gray-200" />
+                  )}
+                </div>
+                <h3 className="text-lg md:text-xl font-bold text-gray-900">{p.title}</h3>
+              </header>
+
+              {/* outcomes */}
+              {p.outcomes && (
+                <ul className="mb-4 space-y-2 text-gray-700">
+                  {p.outcomes.map((o) => (
+                    <li key={o} className="flex items-start gap-2">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 flex-none text-emerald-500" />
+                      <span>{o}</span>
+                    </li>
                   ))}
                 </ul>
               )}
-              <div className="flex flex-wrap gap-2 mb-4">
-                {project.techStack.map((tech) => (
-                  <Badge key={tech} variant="secondary">{tech}</Badge>
+
+              {/* tech stack */}
+              <div className="mb-5 flex flex-wrap gap-2">
+                {p.techStack.map((tech) => (
+                  <Badge key={tech} variant="secondary" className="px-2 py-1">
+                    {tech}
+                  </Badge>
                 ))}
               </div>
-              {project.link && (
+
+              {/* footer CTA */}
+              {p.link ? (
                 <a
-                  href={project.link}
+                  href={p.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-600 hover:underline mt-auto"
+                  className="mt-auto inline-flex items-center gap-1 text-blue-600 hover:text-blue-700"
                 >
                   View case study
+                  <ChevronRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                 </a>
+              ) : (
+                <span className="mt-auto text-sm text-gray-400">Private engagement</span>
               )}
-            </div>
+            </article>
           ))}
         </div>
       </div>
