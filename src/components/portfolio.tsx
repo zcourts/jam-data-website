@@ -47,15 +47,26 @@ const projects: Project[] = [
     accent: "#22c55e",
   },
   {
-    title: "Deathplan",
+    title: "Loras World",
     outcomes: [
-      "Encrypted vault for life data",
-      "Secure beneficiary handover",
+      "Ladder of remote access",
+      "Parental guidance and tracking for minors",
       "Subscriptions + payments",
     ],
     techStack: ["Node.js", "Express.js", "React.js", "PostgreSQL", "AWS S3", "AWS EC2", "Stripe", "Libsodium", "Crypto.js"],
     link: "https://mygoodbyegift.com",
     accent: "#ef4444",
+    link: "https://lorasworld.com/",
+  },
+  {
+    title: "Clinica San Miguel",
+    outcomes: [
+      "Multi-location platform with location-aware funnels",
+      "Built-in reputation layer (ratings + Google-sourced testimonials)",
+      "Operations CMS for a healthcare network (services, forms, careers, bilingual copy, SMS consent)",
+    ],
+    techStack: ["Node.js", "Express.js", "React.js", "PostgreSQL", "AWS S3", "AWS EC2", "Socket.io", "Sequelize", "JsonWebTokens"],
+    link: "https://www.clinicsanmiguel.com/",
   },
   {
     title: "Sippy",
