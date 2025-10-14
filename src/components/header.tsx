@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-40 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b">
+    <header className="px-4 sticky top-0 z-40 bg-white/80 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b">
       <nav className="container mx-auto flex items-center justify-between py-3">
         <Link href="/" className="font-bold text-lg tracking-tight">
           Jam Data Solutions
