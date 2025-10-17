@@ -54,7 +54,6 @@ const projects: Project[] = [
       "Subscriptions + payments",
     ],
     techStack: ["Node.js", "Express.js", "React.js", "PostgreSQL", "AWS S3", "AWS EC2", "Stripe", "Libsodium", "Crypto.js"],
-    link: "https://mygoodbyegift.com",
     accent: "#ef4444",
     link: "https://lorasworld.com/",
   },
